@@ -1,0 +1,13 @@
+{
+    "homepage": "https://www.raidrive.com/",
+    "description": "the best way to manage remote files",
+    "version": "2022.3.21",
+    "url": "https://packages.chocolatey.org/raidrive.2022.3.21.nupkg",
+    "extract_dir": "lib\\net45",
+    "shortcuts": [
+        [
+            "raidrive.exe",
+            "RaiDrive"
+        ]
+    ]
+}
