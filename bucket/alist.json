@@ -30,7 +30,7 @@
         }
     },
     "bin": "alist.exe",
-    "persist": "programdata",
+    "persist": "data",
     "post_install": [],
     "checkver": {
         "github": "https://github.com/alist-org/alist"
