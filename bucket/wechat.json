@@ -1,22 +1,31 @@
 {
-    "homepage": "https://weixin.qq.com/",
-    "description": "Free messaging and calling app.",
-    "version": "nightly",
-    "license": {
-        "identifier": "EULA",
-        "url": "https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_agreement&s=default"
-    },
-    "url": "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe#/dl.7z",
-    "shortcuts": [
-        [
-            "wechat.exe",
-            "微信"
-        ]
-    ],
-    "post_install": [
-        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
-        "Remove-Item \"$dir\\`$_15_\" -Force -Recurse",
-        "Remove-Item \"$dir\\`$R5\" -Force -Recurse"
-    ],
-    "notes": "We don't persist your WeChat data, they are still storaged in '%APPDATA%\\Tencent\\WeChat'."
+  "autoupdate": {
+    "url": "https://webcdn.m.qq.com/spcmgr/download/WeChatSetup_$version.exe#/dl.7z"
+  },
+  "checkver": {
+    "regex": "<li>版本：([\\d.]+)</li>",
+    "url": "https://s.pc.qq.com/softdetail_v3/114/88/detail_11488.html"
+  },
+  "description": "Weixin (微信) is a free messaging and calling app.",
+  "notes": "We don't persist your WeChat data, they are still storaged in '%APPDATA%\\Tencent\\WeChat'.",
+  "hash": "001aedccb59ec9e9067d0703ba0ba9f8e1454159dd7aa4fa9f82c0f9b9a57428",
+  "homepage": "https://weixin.qq.com",
+  "installer": {
+    "script": [
+      "Remove-Item \"$dir\\`$*\" -Recurse -Force -ErrorAction SilentlyContinue",
+      "Remove-Item \"$dir\\Uninstall*\" -Force -ErrorAction SilentlyContinue"
+    ]
+  },
+  "license": {
+    "identifier": "Freeware",
+    "url": "https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_agreement&s=default"
+  },
+  "shortcuts": [
+    [
+      "wechat.exe",
+      "微信"
+    ]
+  ],
+  "url": "https://webcdn.m.qq.com/spcmgr/download/WeChatSetup_3.9.9.35.exe#/dl.7z",
+  "version": "3.9.9.35"
 }
