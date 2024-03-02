@@ -7,7 +7,6 @@
     "script": "(Invoke-WebRequest -Uri 'https://work.weixin.qq.com/wework_admin/commdownload?platform=win&from=wwindex' -MaximumRedirection 0 -SkipHttpErrorCheck -ErrorAction:SilentlyContinue).Headers.Location"
   },
   "description": "WeCom (企业微信) is a professional office management tool created by Tencent WeChat team for companies.",
-  "hash": "ecbbcce2ff919c68464b3fd98ac87fd6f7234d6790c4223de7b0edae1809dcf2",
   "homepage": "https://work.weixin.qq.com",
   "installer": {
     "script": [
