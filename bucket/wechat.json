@@ -8,7 +8,6 @@
   },
   "description": "Weixin (微信) is a free messaging and calling app.",
   "notes": "We don't persist your WeChat data, they are still storaged in '%APPDATA%\\Tencent\\WeChat'.",
-  "hash": "001aedccb59ec9e9067d0703ba0ba9f8e1454159dd7aa4fa9f82c0f9b9a57428",
   "homepage": "https://weixin.qq.com",
   "installer": {
     "script": [
