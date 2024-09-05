@@ -1,23 +1,34 @@
 {
-  "autoupdate": {
-    "url": "https://webcdn.m.qq.com/spcmgr/download/WeChatSetup_$version.exe#/dl.7z"
-  },
-  "checkver": {
-    "regex": "<li>版本：([\\d.]+)</li>",
-    "url": "https://s.pc.qq.com/softdetail_v3/114/88/detail_11488.html"
-  },
+  "version": "3.9.11.25",
   "description": "Weixin (微信) is a free messaging and calling app.",
   "notes": "We don't persist your WeChat data, they are still storaged in '%APPDATA%\\Tencent\\WeChat'.",
-  "homepage": "https://weixin.qq.com",
+  "homepage": "https://pc.weixin.qq.com/",
+  "license": {
+    "identifier": "Proprietary",
+    "url": "https://www.wechat.com/en/service_terms.html"
+  },
+  "architecture": {
+    "64bit": {
+      "url": "https://dldir1v6.qq.com/weixin/Windows/WeChatSetup.exe#/dl.7z",
+      "hash": "04a668ea0d36cd8963acc2b9c0f0aff0c0a7c73f46127863ea1f90e942664171"
+    },
+    "32bit": {
+      "url": "https://dldir1v6.qq.com/weixin/Windows/WeChatSetup_x86.exe#/dl.7z",
+      "hash": "cb602bb5c82c00cb1572100366352c72a6442aef498be1ca30a611c34b36818c"
+    }
+  },
   "installer": {
     "script": [
-      "Remove-Item \"$dir\\`$*\" -Recurse -Force -ErrorAction SilentlyContinue",
-      "Remove-Item \"$dir\\Uninstall*\" -Force -ErrorAction SilentlyContinue"
+      "Remove-Item \"$dir\\`$*\", \"$dir\\Uninst*\" -Force -Recurse",
+      "$configpath = \"$env:APPDATA\\Tencent\\WeChat\\All Users\\config\"",
+      "ensure \"$configpath\" | Out-Null",
+      "Set-Content -NoNewline -Path \"$configpath\\3ebffe94.ini\" -Value \"$persist_dir\"",
+      "$regpath = \"HKCU:Software\\Tencent\\WeChat\"",
+      "if (!(Test-Path \"$regpath\")) {",
+      "    New-Item -Path \"$regpath\" -Type Directory -Force | Out-Null",
+      "}",
+      "New-ItemProperty -Path $regpath -Name \"FileSavePath\" -Value \"$persist_dir\" -Force | Out-Null"
     ]
-  },
-  "license": {
-    "identifier": "Freeware",
-    "url": "https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_agreement&s=default"
   },
   "shortcuts": [
     [
@@ -25,6 +36,28 @@
       "微信"
     ]
   ],
-  "url": "https://webcdn.m.qq.com/spcmgr/download/WeChatSetup_3.9.9.35.exe#/dl.7z",
-  "version": "3.9.9.35"
+  "persist": "WeChat Files",
+  "uninstaller": {
+    "script": [
+      "Remove-Item -Path \"$env:APPDATA\\Tencent\\WeChat\\All Users\\config\\3ebffe94.ini\" -Force | Out-Null",
+      "Remove-ItemProperty -Path \"HKCU:Software\\Tencent\\WeChat\" -Name \"FileSavePath\" -Force | Out-Null"
+    ]
+  },
+  "checkver": {
+    "script": [
+      "$resp = Invoke-WebRequest -UseBasicParsing -Uri 'https://luban.m.qq.com/api/public/software-manager/softwareProxy' -Body 'cmdid=3318&jprxReq%5Breq%5D%5Bsoft_id_list%5D%5B%5D=11488' -Method 'POST'",
+      "Write-Output $resp.Content"
+    ],
+    "jsonpath": "$..ver_name"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://dldir1v6.qq.com/weixin/Windows/WeChatSetup.exe#/dl.7z"
+      },
+      "32bit": {
+        "url": "https://dldir1v6.qq.com/weixin/Windows/WeChatSetup_x86.exe#/dl.7z"
+      }
+    }
+  }
 }
