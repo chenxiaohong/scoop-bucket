@@ -8,7 +8,7 @@
     },
     "description": "WeCom (企业微信) is a professional office management tool created by Tencent WeChat team for companies.",
     "homepage": "https://work.weixin.qq.com",
-    "hash": "c920ecc536643972f15f0a48bad06357b391f7b43f9d8d63a2bb694a298410af",
+    "hash": "8e2123b0d1d10c7b85539a3395f8c00c299d010540c0cf4c413094f1e3cb1de0",
     "installer": {
         "script": [
             "Remove-Item \"$dir\\`$*\" -Recurse -Force -ErrorAction SilentlyContinue",
@@ -25,6 +25,6 @@
             "企业微信"
         ]
     ],
-    "url": "https://dldir1.qq.com/wework/work_weixin/WeCom_5.0.6.6018.exe#/dl.7z",
-    "version": "5.0.6.6018"
+    "url": "https://dldir1.qq.com/wework/work_weixin/WeCom_5.0.6.6028.exe#/dl.7z",
+    "version": "5.0.6.6028"
 }
