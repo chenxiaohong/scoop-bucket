@@ -5,24 +5,33 @@
             "mode": "json",
             "url": "https://meeting.tencent.com/web-service/query-download-info?q=%5B%7B%22package-type%22:%22app%22,%22channel%22:%220300000000%22,%22platform%22:%22windows%22%7D%5D&nonce=AAAAAAAAAAAAAAAA"
         },
-        "url": "$matchUrl#/dl.7z"
+        "url": "https://updatecdn.meeting.qq.com/cos/$matchMd5/TencentMeeting_0300000000_$version.publish.officialwebsite.exe#/dl.7z"
     },
     "checkver": {
         "script": [
             "$script:ver = json_path $page '$.info-list[0].version' -single $true",
-            "$script:matchesHashtable = @{'url' = json_path $page '$.info-list[0].url' -single $true}",
+            "$script:matchesHashtable = @{'md5' = json_path $page '$.info-list[0].md5' -single $true}",
             "$script:regexp = $null"
         ],
         "url": "https://meeting.tencent.com/web-service/query-download-info?q=%5B%7B%22package-type%22:%22app%22,%22channel%22:%220300000000%22,%22platform%22:%22windows%22%7D%5D&nonce=AAAAAAAAAAAAAAAA"
     },
     "description": "腾讯会议，会开会。",
-    "hash": "md5:27e141c19f4165f422142ef2ac1ce35c",
+    "hash": "md5:1934af04bd7761cf3710f6e0a223e785",
     "homepage": "https://meeting.tencent.com",
     "installer": {
         "script": [
-            "Import-Module $(Join-Path $(Find-BucketDirectory -Root -Name ox) scripts/DoradoUtils.psm1)",
-            "Mount-ExternalRuntimeData -Source \"$persist_dir\" -Target \"$env:APPDATA\\Tencent\\WeMeet\"",
-            "Remove-Module -Name DoradoUtils",
+            "$target = \"$env:APPDATA\\Tencent\\WeMeet\"",
+            "if (Test-Path $persist_dir) {",
+            "    Remove-Item $target -Force -Recurse -ErrorAction SilentlyContinue",
+            "} else {",
+            "    New-Item -ItemType Directory $persist_dir -Force | Out-Null",
+            "    if (Test-Path $target) {",
+            "        Get-ChildItem $target | Move-Item -Destination $persist_dir -Force",
+            "        Remove-Item $target -Force -Recurse",
+            "    }",
+            "}",
+            "New-Item -ItemType Directory (Split-Path $target) -Force | Out-Null",
+            "New-Item -ItemType Junction -Path $target -Target $persist_dir -Force | Out-Null",
             "Rename-Item -Path \"$dir\\`$_*\" -NewName \"$version\" -Force",
             "Remove-Item \"$dir\\`$*\" -Recurse -Force -ErrorAction SilentlyContinue",
             "Remove-Item \"$dir\\wemeetapp_new.exe\" -Force -ErrorAction SilentlyContinue",
@@ -41,12 +50,8 @@
         ]
     ],
     "uninstaller": {
-        "script": [
-            "Import-Module $(Join-Path $(Find-BucketDirectory -Root -Name ox) scripts/DoradoUtils.psm1)",
-            "Dismount-ExternalRuntimeData -Target \"$env:APPDATA\\Tencent\\WeMeet\"",
-            "Remove-Module -Name DoradoUtils"
-        ]
+        "script": "Remove-Item \"$env:APPDATA\\Tencent\\WeMeet\" -Force -Recurse -ErrorAction SilentlyContinue"
     },
-    "url": "https://updatecdn.meeting.qq.com/cos/27e141c19f4165f422142ef2ac1ce35c/TencentMeeting_0300000000_3.28.11.477.publish.officialwebsite.exe#/dl.7z",
-    "version": "3.28.11.477"
+    "url": "https://updatecdn.meeting.qq.com/cos/1934af04bd7761cf3710f6e0a223e785/TencentMeeting_0300000000_3.42.3.424.publish.officialwebsite.exe#/dl.7z",
+    "version": "3.42.3.424"
 }

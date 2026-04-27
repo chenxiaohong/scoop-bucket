@@ -1,7 +1,8 @@
 {
     "homepage": "https://cronitor.io/",
-    "description": "Contab monitor",
+    "description": "Crontab monitor",
     "version": "nightly",
+    "license": "Freeware",
     "url": "https://cronitor.io/dl/windows_amd64.zip#/dl.7z",
     "shortcuts": [
         [

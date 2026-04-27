@@ -1,6 +1,6 @@
 {
     "version": "3.6.1",
-    "description": "The official client for Alibaba's cloud dirve service",
+    "description": "The official client for Alibaba's cloud drive service",
     "homepage": "https://www.aliyundrive.com/",
     "license": {
         "identifier": "EULA",
@@ -20,7 +20,8 @@
         ]
     ],
     "checkver": {
-        "script": "return (iwr -useb \"$($(iwr -useb 'https://www.aliyundrive.com/desktop/version/update.json' | ConvertFrom-Json).url)/win32/ia32/latest.yml\")",
+        "url": "https://www.aliyundrive.com/desktop/version/update.json",
+        "script": "return (iwr -useb \"$((ConvertFrom-Json $page).url)/win32/ia32/latest.yml\")",
         "re": "version: ([\\d.]+)"
     },
     "autoupdate": {

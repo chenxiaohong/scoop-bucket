@@ -8,9 +8,7 @@
     },
     "url": "https://d1.music.126.net/dmusic/cloudmusicsetup2.9.9.199909.exe#/dl.7z",
     "hash": "dfa07efeb984fe10dc2527461a4ea34121f3d8b42b5cda6ee61beabec12e9e2e",
-    "pre_install":[
-        "cmd /c mklink /J \"$env:LocalAppData\\Netease\\CloudMusic\" \"$persist_dir\\LocalData\""
-    ],
+    "pre_install": "cmd /c mklink /J \"$env:LocalAppData\\Netease\\CloudMusic\" \"$persist_dir\\LocalData\"",
     "installer": {
         "script": [
             "Move-Item \"$dir\\redist_packages\\*\" \"$dir\"",
@@ -26,11 +24,12 @@
         ]
     ],
     "checkver": {
-        "script": "return (iwr -useb 'https://music.163.com/api/pc/package/download/latest' -Method Head).Headers['x-nos-object-name']",
-        "regex": "cloudmusicsetup(?<version>[\\d.]+\\d)(?<bug>.*?).exe"
+        "url": "https://music.163.com/api/pc/package/download/latest",
+        "script": "$json = ConvertFrom-Json $page; return \"$($json.data.appVer).$($json.data.buildVer)\"",
+        "regex": "([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://d1.music.126.net/dmusic/cloudmusicsetup$version$matchBug.exe#/dl.7z"
+        "url": "https://d8.music.126.net/dmusic2/NeteaseCloudMusic_Music_official_$version_32.exe#/dl.7z"
     },
     "uninstaller": {
         "script": [
