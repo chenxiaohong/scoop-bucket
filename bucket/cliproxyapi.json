@@ -1,16 +1,16 @@
 {
-    "version": "6.9.41",
+    "version": "6.9.42",
     "description": "OpenAI/Gemini/Claude/Codex compatible API proxy for CLI models.",
     "homepage": "https://github.com/router-for-me/CLIProxyAPI",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/router-for-me/CLIProxyAPI/releases/download/v6.9.41/CLIProxyAPI_6.9.41_windows_amd64.zip",
-            "hash": "0cc1f2a7c314d739e844eca64ab6866a1c7246a3b72b15891cc94fedfb38d7d0"
+            "url": "https://github.com/router-for-me/CLIProxyAPI/releases/download/v6.9.42/CLIProxyAPI_6.9.42_windows_amd64.zip",
+            "hash": "9ef9a7fc163ffc2318de2284d8fc244a0ed5ea5ae148cd39f7a69a46de268ab4"
         },
         "arm64": {
-            "url": "https://github.com/router-for-me/CLIProxyAPI/releases/download/v6.9.41/CLIProxyAPI_6.9.41_windows_arm64.zip",
-            "hash": "fce72180b4f2edc312c9f41807f3be0c1f6094572906bbf0c6073f7c55b568bc"
+            "url": "https://github.com/router-for-me/CLIProxyAPI/releases/download/v6.9.42/CLIProxyAPI_6.9.42_windows_arm64.zip",
+            "hash": "217b6c4167ffa0250d384ffedd0e89550045407ad47cef95be579f338bfee581"
         }
     },
     "pre_install": "if (!(Test-Path \"$persist_dir\\config.yaml\")) { Copy-Item \"$dir\\config.example.yaml\" \"$dir\\config.yaml\" }",
