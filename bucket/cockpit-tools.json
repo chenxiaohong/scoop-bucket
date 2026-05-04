@@ -1,12 +1,12 @@
 {
-    "version": "0.22.17",
+    "version": "0.22.18",
     "description": "Universal AI IDE account manager for Antigravity, Codex, GitHub Copilot, Windsurf, Kiro, Cursor, Gemini CLI and more.",
     "homepage": "https://github.com/jlcodes99/cockpit-tools",
     "license": "CC-BY-NC-SA-4.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/jlcodes99/cockpit-tools/releases/download/v0.22.17/Cockpit.Tools_0.22.17_x64-setup.exe#/dl.7z",
-            "hash": "c7d81dbbe2907c593b07ef84f47ddaab5f17e6ad503b542e4777fb412a630945"
+            "url": "https://github.com/jlcodes99/cockpit-tools/releases/download/v0.22.18/Cockpit.Tools_0.22.18_x64-setup.exe#/dl.7z",
+            "hash": "d73412d95a4862a6436c1476dc060c2f590faa1a4970c8b94888826504b1a1d6"
         }
     },
     "extract_dir": "$PLUGINSDIR",
