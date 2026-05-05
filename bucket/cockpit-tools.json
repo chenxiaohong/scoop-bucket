@@ -9,16 +9,12 @@
             "hash": "3e46360889de6a4c3438069a18c3e12b36a558e82620bfeab17ab51bea636eab"
         }
     },
-    "extract_dir": "$PLUGINSDIR",
     "installer": {
-        "script": [
-            "Remove-Item \"$dir\\*\" -Exclude 'app-64.7z'",
-            "Expand-7zipArchive \"$dir\\app-64.7z\" \"$dir\" -Removal"
-        ]
+        "script": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse -ErrorAction SilentlyContinue"
     },
     "shortcuts": [
         [
-            "Cockpit Tools.exe",
+            "cockpit-tools.exe",
             "Cockpit Tools"
         ]
     ],
