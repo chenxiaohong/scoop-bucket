@@ -1,12 +1,12 @@
 {
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "External enhancement launcher and manager for the Codex App.",
     "homepage": "https://github.com/BigPizzaV3/CodexPlusPlus",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v1.1.5/CodexPlusPlus-1.1.5-windows-x64-setup.exe#/dl.7z",
-            "hash": "dc71d15d76e2a76c595550a3ba1b79e74e90e97661fe3964d5443d59a51735f1"
+            "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v1.1.6/CodexPlusPlus-1.1.6-windows-x64-setup.exe#/dl.7z",
+            "hash": "62ddbcd12aef8538d15ffafe796f8c31a8d6dfdf2b649ec3088aacc121c6f0a0"
         }
     },
     "installer": {
