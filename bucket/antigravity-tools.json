@@ -1,12 +1,12 @@
 {
-    "version": "4.7.10",
+    "version": "4.7.11",
     "description": "Professional Antigravity account manager and switcher.",
     "homepage": "https://github.com/lbjlaq/Antigravity-Manager",
     "license": "CC-BY-NC-SA-4.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v4.7.10/Antigravity.Tools_4.7.10_x64-setup.exe#/dl.7z",
-            "hash": "776e32ef70d6aeeec45bc8f1887e8c471b16804c4f82a6cc45deb2bf731c2e0e"
+            "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v4.7.11/Antigravity.Tools_4.7.11_x64-setup.exe#/dl.7z",
+            "hash": "95691c86f57126ab2eab61d6994aa623b055706ba7fb75df2a07e5ee6f226924"
         }
     },
     "installer": {
