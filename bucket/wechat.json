@@ -1,5 +1,5 @@
 {
-    "version": "4.2.0.13",
+    "version": "4.2.0.52",
     "description": "Weixin (微信) is a free messaging and calling app.",
     "notes": "We don't persist your WeChat data, it is still stored in '%APPDATA%\\Tencent\\WeChat'.",
     "homepage": "https://pc.weixin.qq.com/",
@@ -10,7 +10,7 @@
     "architecture": {
         "64bit": {
             "url": "https://dldir1v6.qq.com/weixin/Universal/Windows/WeChatWin_4.2.0.exe#/dl.7z",
-            "hash": "fce15d1659d2ff4e1fbc3abe8704160d3e9376b88ef2e832961f8274bec4406c"
+            "hash": "67a53601ae597f0dff821155706e31dbfef36ee972caadb868097eb4d972c11a"
         }
     },
     "installer": {
