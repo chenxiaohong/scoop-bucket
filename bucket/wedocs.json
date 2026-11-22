@@ -22,7 +22,7 @@
     "homepage": "https://docs.qq.com",
     "installer": {
         "script": [
-            "Expand-7zipArchive \"$dir\\_installer\\app-64.7z\" \"$dir\"",
+            "Expand-7zipArchive \"$dir\\_installer\\app-64.7z\" \"$dir\" -ExtractDir \"versions\\$version\"",
             "Remove-Item -LiteralPath \"$dir\\_installer\" -Recurse -Force"
         ]
     },
@@ -32,7 +32,7 @@
     },
     "shortcuts": [
         [
-            "TencentDocsLauncher.exe",
+            "TencentDocs.exe",
             "腾讯文档"
         ]
     ],
